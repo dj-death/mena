@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="SalesFort website">
+    <meta name="author" content="SalesFort">
+
+    <!-- Twitter -->
+    <meta name="twitter:site" content="salesfort">
+    <meta name="twitter:creator" content="salesfort">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SalesFort">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="">
+
+    <!-- Facebook -->
+    <meta property="og:url" content="">
+    <meta property="og:title" content="SalesFort">
+    <meta property="og:description" content="">
+
+    <meta property="og:image" content="">
+    <meta property="og:image:secure_url" content="">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="600">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="../../assets/img/favicon.png">
+
+    <title><%= title %></title>
+
+    <!-- vendor css -->
+    <link href="../../lib/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="../../lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="../../lib/etline-font/etline-font.css" rel="stylesheet">
+
+    <!-- DashForge CSS -->
+    <link rel="stylesheet" href="../../assets/css/dashforge.css">
+    <link rel="stylesheet" href="../../assets/css/dashforge.auth.css">
+
+    <style>
+        .page-title {
+            text-align: center;
+            color: #007bff;
+            font-weight: 900;
+            font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        }
+
+        .lead {
+            font-size: 1.09375rem;
+            font-weight: 400;
+        }
+
+        .navbar-header .nav-link {
+            font-size: 16px;
+        }
+
+        @media (min-width: 1200px) {
+            .navbar-menu-wrapper {
+                padding-left: 15%;
+            }
+        }
+
+        .navbar-header {
+            align-items: stretch;
+            height: 83px;
+            padding: 0;
+            justify-content: flex-start;
+            background-color: #fff;
+            border-bottom: 1px solid rgba(72, 94, 144, 0.16);
+        }
+
+        @media (min-width: 992px) {
+            .navbar-menu-wrapper {
+                padding-left: 15%;
+            }
+
+            .navbar-header {
+                height: 70px;
+            }
+        }
+
+        .df-logo {
+            font-weight: 700;
+            font-size: 22px;
+            letter-spacing: -1px;
+            color: inherit;
+            display: flex;
+            align-items: center;
+            position: relative;
+            color: #031a61;
+            margin-top: 0;
+        }
+
+
+        .sticky {
+            background-color: #fff;
+            -webkit-box-shadow: 0 0 7px 0 #ddd;
+            -moz-box-shadow: 0 0 7px 0 #ddd;
+            box-shadow: 0 0 7px 0 #ddd;
+        }
+
+        @media (min-width: 992px) {
+            .sticky {
+                position: fixed;
+                width: 100%;
+                top: 0;
+                z-index: 999;
+                margin-top: 0 !important;
+            }
+        }
+
+        .sticky {
+            padding: 0;
+            padding-top: 11px;
+        }
+
+
+        .intro-secondary .container {
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+            width: 1170px;
+        }
+
+        .intro-secondary .row {
+            margin-right: -15px;
+            margin-left: -15px;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+        }
+
+        .span12 {
+            width: 100%;
+        }
+
+        [class*="span"] {
+            position: relative;
+            min-height: 1px;
+            padding-right: 15px;
+            padding-left: 15px;
+            float: left;
+        }
+
+        .p-y-3 {
+            padding-top: 3rem !important;
+            padding-bottom: 3rem !important;
+        }
+
+        .row {
+            margin-left: -0.938rem;
+            margin-right: -0.938rem;
+        }
+
+        .row::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+
+        [data-icon]:before {
+            font-family: 'et-line';
+            content: attr(data-icon);
+            speak: none;
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+            line-height: 1;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            display: inline-block;
+        }
+
+        .intro-icon {
+            display: inline-block;
+            vertical-align: top;
+            padding: 6px 0 0 0;
+            margin-right: 8px;
+            width: 40px;
+        }
+
+        .intro-icon span.icon {
+            font-size: 40px;
+            color: #FF5274;
+            font-weight: bold;
+        }
+
+        .intro-item {
+            display: inline-block;
+            width: 100%;
+        }
+
+        .intro-item p {
+            font-size: 15px;
+            line-height: 29px;
+            color: rgba(28, 54, 83, 0.6);
+        }
+
+        .intro-item h5 {
+            font-size: 15px;
+            color: #3D4351;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        #footer .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+
+        #footer {
+            padding: 60px 0;
+            font-size: 1rem;
+        }
+
+        #footer h5 {
+            padding-left: 10px;
+            border-left: 3px solid #eeeeee;
+            padding-bottom: 6px;
+            margin-bottom: 20px;
+        }
+
+        #footer a {
+            text-decoration: none !important;
+            background-color: transparent;
+            -webkit-text-decoration-skip: objects;
+        }
+
+        #footer ul.social li {
+            padding: 3px 0;
+        }
+
+        #footer ul.social li a i {
+            margin-right: 5px;
+            font-size: 25px;
+            -webkit-transition: .5s all ease;
+            -moz-transition: .5s all ease;
+            transition: .5s all ease;
+        }
+
+        #footer ul.social li:hover a i {
+            font-size: 30px;
+            margin-top: -10px;
+        }
+
+        #footer ul.social li a,
+
+        #footer ul.social li a:hover {
+            color: #eeeeee;
+        }
+
+        #footer ul.quick-links li {
+            padding: 3px 0;
+            -webkit-transition: .5s all ease;
+            -moz-transition: .5s all ease;
+            transition: .5s all ease;
+        }
+
+        #footer ul.quick-links li:hover {
+            padding: 3px 0;
+            margin-left: 5px;
+            font-weight: 700;
+        }
+
+        #footer ul.quick-links li a i {
+            margin-right: 5px;
+        }
+
+        #footer ul.quick-links li:hover a i {
+            font-weight: 700;
+        }
+
+        @media (max-width:767px) {
+            #footer h5 {
+                padding-left: 0;
+                border-left: transparent;
+                padding-bottom: 0px;
+                margin-bottom: 10px;
+            }
+        }
+
+        .navbar-brand {
+            display: inline-block;
+            padding-top: 0.33594rem;
+            padding-bottom: 0.33594rem;
+            margin-right: 0;
+            font-size: 1.09375rem;
+            line-height: inherit;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            padding-left: 15px;
+            margin-right: 0;
+            order: 1;
+        }
+
+        .navbar-header .navbar-right {
+            padding-right: 25px;
+        }   
+
+        @media (min-width: 992px) {
+            .navbar-header .navbar-brand {
+                width: 194px;
+                padding: 0 0 0 20px;
+                margin-top: -3px;
+            }
+
+            .navbar-header .navbar-right {
+                padding-right: 15px;
+            }   
+        }
+
+        
+        
+
+    </style>
+</head>

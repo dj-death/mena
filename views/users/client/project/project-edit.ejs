@@ -1,0 +1,182 @@
+<%- include('../../include/dashboard-headcss') %>
+
+<style>
+    /* layout.css Style */
+    .upload-drop-zone {
+        height: 200px;
+        border-width: 2px;
+        margin-bottom: 20px;
+    }
+
+    /* skin.css Style*/
+    .upload-drop-zone {
+        color: #ccc;
+        border-style: dashed;
+        border-color: #ccc;
+        line-height: 200px;
+        text-align: center
+    }
+
+    .upload-drop-zone.drop {
+        color: #222;
+        border-color: #222;
+    }
+
+
+
+    .image-preview-input {
+        position: relative;
+        overflow: hidden;
+        margin: 0px;
+        color: #333;
+        background-color: #fff;
+        border-color: #ccc;
+    }
+
+    .image-preview-input input[type=file] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0;
+        padding: 0;
+        font-size: 20px;
+        cursor: pointer;
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+
+    .image-preview-input-title {
+        margin-left: 2px;
+    }
+</style>
+
+<body>
+    <%- include('../dashboard-menu') %>
+
+    <div class="content ht-100v pd-0">
+        <div class="content-header d-sm-none">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb breadcrumb-style1 mg-b-0">
+                                        <li class="breadcrumb-item" aria-current="page">My Projects</li>
+                    <li class="breadcrumb-item active" aria-current="page"><%= project.title %></li>
+                </ol>
+            </nav>
+            <nav class="nav">
+                <a href="/client/project/<%= project.id %>" class="nav-link">Go Back</a>
+            </nav>
+        </div><!-- content-header -->
+
+        <div class="content-body">
+            <!-- pd-x-0 pd-lg-x-10 pd-xl-x-0 -->
+            <div class="container pd-x-0">
+
+                <form>
+                    <div class="row row-xs">
+                        <div class="col-xl-10 order-xl-1">
+                            <div class="card">
+                                <div class="card-header bg-white border-0">
+                                    <div class="row align-items-center">
+                                        <div class="col-8">
+                                            <h5 class="mb-0"><%= project.title %> Details</h5>
+                                        </div>
+
+                                        <div class="col-4 text-right">
+                                            <a href="#!" class="btn btn-sm btn-success">Save</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="heading-small text-muted mb-4">Project Info</h6>
+                                    <div class="pl-lg-4">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="form-group focused">
+                                                    <label class="form-control-label">Title</label>
+                                                    <input type="text" class="form-control form-control-alternative"
+                                                        placeholder="Project Title" value="<%= project.title %>">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12">
+                                                <div class="form-group focused">
+                                                    <label>Description</label>
+                                                    <textarea rows="4" class="form-control form-control-alternative"
+                                                        placeholder="A few words about project ..."><%= project.description %></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row row-xs mg-t-35">
+                        <div class="col-xl-10 order-xl-1">
+                            <div class="card">
+                                <div class="card-header bg-white border-0">
+                                    <div class="row align-items-center">
+                                        <div class="col-8">
+                                            <h5 class="mb-0">Call Numbers</h5>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card-body">
+                                    <%- include('upload-csv') %>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div><!-- container -->
+        </div><!-- content-body -->
+    </div><!-- content -->
+
+    <%- include('../../include/dashboard-footer-scripts') %>
+
+    <!--
+        <script>
+
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $('.file-upload-wrap').hide();
+
+                        $('.file-upload-content').show();
+
+                        $('.file-title').html(input.files[0].name);
+                    };
+
+                    reader.readAsDataURL(input.files[0]);
+
+                } else {
+                    removeUpload();
+                }
+            }
+
+            function removeUpload() {
+                $('.file-upload-input').replaceWith($('.file-upload-input').clone());
+                $('.file-upload-content').hide();
+                $('.file-upload-wrap').show();
+            }
+
+            $('.file-upload-wrap').bind('dragover', function () {
+                $('.file-upload-wrap').addClass('file-dropping');
+            });
+
+            $('.file-upload-wrap').bind('dragleave', function () {
+                $('.file-upload-wrap').removeClass('file-dropping');
+            });
+        </script>-->
+
+</body>
+
+</html>

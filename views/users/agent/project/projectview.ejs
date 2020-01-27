@@ -1,0 +1,542 @@
+<%- include('../../include/dashboard-headcss') %>
+<style>
+  .media-folder {
+    position: relative;
+    border: 1px solid rgba(72, 94, 144, 0.16);
+    padding: 10px 12px;
+    background-color: #fff;
+    border-radius: 0.25rem;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .media-folder>svg {
+    width: 42px;
+    height: 42px;
+    stroke-width: 1.5px;
+    color: #0168fa;
+    opacity: .7;
+  }
+
+  .media-folder .media-body {
+    margin-top: 5px;
+    margin-left: 10px;
+  }
+</style>
+
+<body>
+  <%- include('../dashboard-menu') %>
+
+  <div class="content ht-100v pd-0">
+    <div class="content-header">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb breadcrumb-style1 mg-b-10">
+          <li class="breadcrumb-item" aria-current="page">My Projects</li>
+          <li class="breadcrumb-item active" aria-current="page"><%= project.title %></li>
+        </ol>
+      </nav>
+    </div><!-- content-header -->
+
+    <div class="content-body">
+      <!-- pd-x-0 pd-lg-x-10 pd-xl-x-0 -->
+      <div class="container pd-x-0">
+
+        <!-- Project stats -->
+        <div class="row row-xs align-items-center justify-content-between">
+
+          <div class="col-sm-5 col-lg-2 mg-b-25">
+            <div class="card card-body">
+              <h6 class="tx-uppercase tx-11 tx-spacing-1 tx-primary tx-semibold mg-b-8">Total Sales</h6>
+              <div class="d-flex d-lg-block d-xl-flex align-items-end">
+                <h3 class="tx-normal tx-rubik mg-b-0 mg-r-5 lh-1">$5,600.20</h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-5 col-lg-2 mg-b-25">
+            <div class="card card-body">
+              <h6 class="tx-uppercase tx-11 tx-spacing-1 tx-teal tx-semibold mg-b-8">Total Calls</h6>
+              <div class="d-flex d-lg-block d-xl-flex align-items-end">
+                <h3 class="tx-normal tx-rubik mg-b-0 mg-r-5 lh-1">137</h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-lg-3 mg-b-25">
+            <div class="card card-body">
+              <h6 class="tx-uppercase tx-11 tx-spacing-1 tx-primary tx-semibold mg-b-8">Effective Cost Per Call</h6>
+              <div class="d-flex d-lg-block d-xl-flex align-items-end">
+                <h3 class="tx-normal tx-rubik mg-b-0 mg-r-5 lh-1">$230.20</h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-5 col-lg-2 mg-b-25">
+            <div class="card card-body">
+              <h6 class="tx-uppercase tx-11 tx-spacing-1 tx-primary tx-semibold mg-b-8">Total Call Cost</h6>
+              <div class="d-flex d-lg-block d-xl-flex align-items-end">
+                <h3 class="tx-normal tx-rubik mg-b-0 mg-r-5 lh-1">$230.20</h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-5 col-lg-2 mg-b-25">
+            <div class="card card-body">
+              <h6 class="tx-uppercase tx-11 tx-spacing-1 tx-pink tx-semibold mg-b-8">Total Agent Cost</h6>
+              <div class="d-flex d-lg-block d-xl-flex align-items-end">
+                <h3 class="tx-normal tx-rubik mg-b-0 mg-r-5 lh-1">$7,500.20</h3>
+              </div>
+            </div>
+          </div>
+
+        </div> <!-- end project stats -->
+
+        <!-- Project graphs -->
+        <div class="row row-xs align-items-center justify-content-between">
+          <!-- graph call -->
+          <div class="col-lg-8 col-xl-9">
+            <div class="card">
+              <div
+                class="card-header bd-b-0 pd-t-20 pd-lg-t-25 pd-l-20 pd-lg-l-25 d-flex flex-column flex-sm-row align-items-sm-start justify-content-sm-between">
+                <div class="mg-b-10 mg-sm-b-0">
+                  <h6 class="mg-b-5 tx-bold">Calls Per Date Period</h6>
+                  <p class="tx-12 tx-color-03 mg-b-0">as of 10th to 17th of March 2019</p>
+                </div>
+                <div class="btn-group mg-t-20 mg-sm-t-0">
+                  <button class="btn btn-xs btn-white btn-uppercase">Day</button>
+                  <button class="btn btn-xs btn-white btn-uppercase">Week</button>
+                  <button class="btn btn-xs btn-white btn-uppercase active">Month</button>
+                </div><!-- btn-group -->
+              </div>
+
+              <div class="card-body">
+                <div class="row align-items-sm-end">
+
+                  <div class="col-lg-7 col-xl-8">
+                    <div class="chart-fifteen">
+                      <div id="flotChart1" class="flot-chart" style="padding: 0px; position: relative;"><canvas
+                          class="flot-base" width="732" height="200"
+                          style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 732.656px; height: 200px;"></canvas>
+                        <div class="flot-text"
+                          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; font-size: smaller; color: rgb(84, 84, 84);">
+                          <div class="flot-x-axis flot-x1-axis xAxis x1Axis"
+                            style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px;">
+                            <div class="flot-tick-label tickLabel"
+                              style="position: absolute; max-width: 91px; top: 188px; left: 6px; text-align: center;">
+                              Mar 10</div>
+                            <div class="flot-tick-label tickLabel"
+                              style="position: absolute; max-width: 91px; top: 188px; left: 101px; text-align: center;">
+                              Mar 11</div>
+                            <div class="flot-tick-label tickLabel"
+                              style="position: absolute; max-width: 91px; top: 188px; left: 195px; text-align: center;">
+                              Mar 12</div>
+                            <div class="flot-tick-label tickLabel"
+                              style="position: absolute; max-width: 91px; top: 188px; left: 289px; text-align: center;">
+                              Mar 13</div>
+                            <div class="flot-tick-label tickLabel"
+                              style="position: absolute; max-width: 91px; top: 188px; left: 383px; text-align: center;">
+                              Mar 14</div>
+                            <div class="flot-tick-label tickLabel"
+                              style="position: absolute; max-width: 91px; top: 188px; left: 477px; text-align: center;">
+                              Mar 15</div>
+                            <div class="flot-tick-label tickLabel"
+                              style="position: absolute; max-width: 91px; top: 188px; left: 571px; text-align: center;">
+                              Mar 16</div>
+                            <div class="flot-tick-label tickLabel"
+                              style="position: absolute; max-width: 91px; top: 188px; left: 666px; text-align: center;">
+                              Mar 17</div>
+                          </div>
+                          <div class="flot-y-axis flot-y1-axis yAxis y1Axis"
+                            style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px;">
+                            <div class="flot-tick-label tickLabel"
+                              style="position: absolute; top: 172px; left: 5px; text-align: right;">0</div>
+                            <div class="flot-tick-label tickLabel"
+                              style="position: absolute; top: 143px; left: 0px; text-align: right;">15</div>
+                            <div class="flot-tick-label tickLabel"
+                              style="position: absolute; top: 115px; left: 0px; text-align: right;">30</div>
+                            <div class="flot-tick-label tickLabel"
+                              style="position: absolute; top: 87px; left: 0px; text-align: right;">45</div>
+                            <div class="flot-tick-label tickLabel"
+                              style="position: absolute; top: 58px; left: 0px; text-align: right;">60</div>
+                            <div class="flot-tick-label tickLabel"
+                              style="position: absolute; top: 30px; left: 0px; text-align: right;">75</div>
+                            <div class="flot-tick-label tickLabel"
+                              style="position: absolute; top: 2px; left: 0px; text-align: right;">90</div>
+                          </div>
+                        </div><canvas class="flot-overlay" width="732" height="200"
+                          style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 732.656px; height: 200px;"></canvas>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div><!-- card-body -->
+            </div>
+
+          </div><!-- end graph call -->
+
+          <!-- Calls per Agent -->
+          <div class="col-md-6 col-lg-4 col-xl-3">
+            <div class="card">
+              <div class="card-header bg-gray-100">
+                <h6 class="mg-b-0 tx-semibold ">Calls per Agent</h6>
+              </div><!-- card-header -->
+
+              <div class="card-body pd-lg-25">
+                <div class="row">
+
+                  <div class="col-sm-6 col-lg-12">
+                    <div class="d-flex align-items-center justify-content-between mg-b-5">
+                      <h6 class="tx-uppercase tx-10 tx-spacing-1 tx-color-02 tx-semibold mg-b-0">Peter</h6>
+                      <span class="tx-10 tx-color-04">65% goal reached</span>
+                    </div>
+                    <div class="d-flex align-items-end justify-content-between mg-b-5">
+                      <h5 class="tx-normal tx-rubik lh-2 mg-b-0">13,596</h5>
+                      <h6 class="tx-normal tx-rubik tx-color-03 lh-2 mg-b-0">20,000</h6>
+                    </div>
+                    <div class="progress ht-4 mg-b-0 op-5">
+                      <div class="progress-bar bg-teal wd-65p" role="progressbar" aria-valuenow="65" aria-valuemin="0"
+                        aria-valuemax="100"></div>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-6 col-lg-12 mg-t-30 mg-sm-t-0 mg-lg-t-30">
+                    <div class="d-flex align-items-center justify-content-between mg-b-5">
+                      <h6 class="tx-uppercase tx-10 tx-spacing-1 tx-color-02 tx-semibold mg-b-0">Michel</h6>
+                      <span class="tx-10 tx-color-04">45% goal reached</span>
+                    </div>
+                    <div class="d-flex justify-content-between mg-b-5">
+                      <h5 class="tx-normal tx-rubik mg-b-0">83,123</h5>
+                      <h5 class="tx-normal tx-rubik tx-color-03 mg-b-0"><small>250,000</small></h5>
+                    </div>
+                    <div class="progress ht-4 mg-b-0 op-5">
+                      <div class="progress-bar bg-orange wd-45p" role="progressbar" aria-valuenow="45" aria-valuemin="0"
+                        aria-valuemax="100"></div>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-6 col-lg-12 mg-t-30">
+                    <div class="d-flex align-items-center justify-content-between mg-b-5">
+                      <h6 class="tx-uppercase tx-10 tx-spacing-1 tx-color-02 tx-semibold mg-b-0">Lewis</h6>
+                      <span class="tx-10 tx-color-04">85% goal reached</span>
+                    </div>
+                    <div class="d-flex justify-content-between mg-b-5">
+                      <h5 class="tx-normal tx-rubik mg-b-0">28.50%</h5>
+                      <h5 class="tx-normal tx-rubik tx-color-03 mg-b-0"><small>30.50%</small></h5>
+                    </div>
+                    <div class="progress ht-4 mg-b-0 op-5">
+                      <div class="progress-bar bg-primary wd-85p" role="progressbar" aria-valuenow="85"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </div>
+
+                </div><!-- row -->
+
+              </div><!-- card-body -->
+
+            </div><!-- card -->
+          </div> <!-- end Calls per Agent -->
+
+        </div>
+
+        <!-- Calls history -->
+        <div class="row row-xs align-items-center justify-content-center">
+          <div class="col-lg-8 col-xl-12 mg-t-25">
+            <div class="card">
+              <div class="card-header pd-y-15 pd-x-20 d-flex align-items-center justify-content-between bg-gray-100">
+                <h6 class="tx-uppercase tx-semibold mg-b-0">Calls History</h6>
+              </div>
+
+              <div class="card-body pd-y-15 pd-x-25">
+                <div class="table-responsive">
+                  <table class="table table-borderless table-sm tx-13 tx-nowrap mg-b-0">
+                    <thead>
+                      <tr class="tx-10 tx-spacing-1 tx-color-03 tx-uppercase text-center">
+                        <th class="text-left wd-200">Date</th>
+                        <th>Phone Number</th>
+                        <th>Duration (min)</th>
+                        <th>Cost ($)</th>
+                        <th>Listen</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      <% project.calls.forEach(function (call) { %>
+                      <tr class="text-center">
+                        <td class="text-left tx-normal"><%= call.date %></td>
+                        <td class="tx-medium"><%= call.number %></td>
+                        <td class="tx-teal"><%= call.duration %></td>
+                        <td class="tx-pink"><%= call.cost %></td>
+                        <td class="tx-medium"><%= call.listen %></td>
+                      </tr>
+                      <% }); %>
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Calls List -->
+        <div class="row row-xs align-items-center justify-content-center">
+          <div class="col-lg-8 col-xl-12 mg-t-25">
+            <div class="card">
+              <div class="card-header pd-y-15 pd-x-20 d-flex align-items-center justify-content-between bg-gray-100">
+                <h6 class="tx-uppercase tx-semibold mg-b-0">Calling List</h6>
+              </div>
+
+              <div class="card-body pd-y-15 pd-x-25">
+                <div class="table-responsive">
+                  <table class="table table-borderless table-sm tx-13 tx-nowrap mg-b-0">
+                    <thead>
+                      <tr class="tx-10 tx-spacing-1 tx-color-03 tx-uppercase text-center">
+                        <th class="text-left wd-15p">Name</th>
+                        <th>Number</th>
+                        <th class="wd-15p">Status</th>
+                        <th>Notes</th>
+                        <th>Mark as Complete</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      <% project.callingList.forEach(function (call) { %>
+                      <tr class="text-center">
+                        <td class="text-left tx-normal"><%= call.name %></td>
+                        <td><%= call.number %></td>
+
+                        <td>
+                          <select class="custom-select bd-0 pd-y-0 mg-y-0" style="margin-top: -8px;">
+                            <option value="5" <% if (call.status == 5) { %> selected <% } %>>Not Called</option>
+                            <option value="4" <% if (call.status == 4) { %> selected <% } %>>Phone off</option>
+                            <option value="3" <% if (call.status == 3) { %> selected <% } %>>Didn't answer</option>
+                            <option value="2" <% if (call.status == 2) { %> selected <% } %>>Call back late</option>
+                            <option value="1" <% if (call.status == 1) { %> selected <% } %>>Completed</option>
+                          </select>
+                        </td>
+
+                        <td class="pd-t-0">
+                          <span data-toggle="modal" data-target="#modalCallingListNote" class="mg-r-15"
+                            style="margin-top: -8px; cursor: pointer;">
+                            <a data-toggle="tooltip" title="" class="nav-link d-none d-sm-block"
+                              data-original-title="Add Note">
+                              <%= call.notes %>
+                            </a>
+                          </span>
+                        </td>
+
+                        <td>
+                          <a data-toggle="modal" data-target="#modalConfirmCompletion">
+                            <input type="checkbox" <% if (call.completed) { %> checked <% } %> />
+                          </a>
+                        </td>
+
+                      </tr>
+                      <% }); %>
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Projct instruction -->
+        <div class="row row-xs align-items-center justify-content-center">
+          <div class="col-lg-8 col-xl-12 mg-t-25">
+            <div class="card">
+              <div class="card-header d-sm-flex align-items-start justify-content-between bg-gray-100">
+                <span class="tx-color-04 d-none d-sm-inline"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" class="feather feather-download wd-24 ht-24">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                  </svg></span>
+                <div class="media-body mg-sm-l-20">
+                  <h6 class="lh-5 mg-b-0 tx-semibold">Download Project Instructions / Uploaded Files</h6>
+                </div>
+              </div>
+
+              <div class="card card-body bd-0">
+                <div class="row row-xs">
+                  <% project.files.forEach(function(file) { %>
+
+                  <div class="col-sm-6 col-lg-4 col-xl-3">
+                    <div class="media media-folder">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-folder">
+                        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                      </svg>
+                      <div class="media-body">
+                        <h6><a href="" class="link-02"><%= file.filename %></a></h6>
+                        <small class="d-none d-sm-inline">Last accessed: <%= file.lastAccess %> hours ago</small>
+                      </div>
+                    </div>
+                  </div>
+
+                  <% }); %>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+        </div> <!-- end Projct instruction -->
+
+      </div><!-- container -->
+    </div><!-- content-body -->
+  </div><!-- content -->
+
+  <%- include('add-call-note') %>
+  <%- include('update-call-status') %>
+
+
+
+  <!-- include('../../../../website/include/footer-nav') -->
+
+  <%- include('../../include/dashboard-footer-scripts') %>
+
+  <script>
+    $(function () {
+      'use strict'
+
+      $.plot('#flotChart1', [{
+        data: df1,
+        color: '#69b2f8'
+      }, /*{
+    data: df3,
+    color: '#0168fa',
+    lines: {
+      show: true,
+      lineWidth: 1.5
+    },
+    bars: { show: false }
+  }*/], {
+        series: {
+          shadowSize: 0,
+          bars: {
+            show: true,
+            lineWidth: 0,
+            barWidth: .5,
+            fill: 1
+          }
+        },
+        grid: {
+          color: '#c0ccda',
+          borderWidth: 0,
+          labelMargin: 10
+        },
+        yaxis: {
+          show: true,
+          max: 90,
+          tickSize: 15
+        },
+        xaxis: {
+          color: 'transparent',
+          show: true,
+          max: 37,
+          ticks: [[0, 'Mar 10'], [5, 'Mar 15'], [10, 'Mar 20'], [15, 'Mar 25'], [20, 'Avr 1'], [25, 'Avr 05'], [30, 'Avr 10'], [35, 'Avr 15']]
+        }
+      });
+
+      // Donut chart
+      $('.peity-donut').peity('donut');
+
+
+      $.plot('#flotChart2', [{
+        data: df3,
+        color: '#0168fa',
+        curvedLines: { apply: true }
+      }], {
+        series: {
+          shadowSize: 0,
+          lines: {
+            show: true,
+            lineWidth: 1.5,
+            fill: .05
+          }
+        },
+        grid: {
+          borderWidth: 0,
+          labelMargin: 0
+        },
+        yaxis: {
+          show: false,
+          max: 55
+        },
+        xaxis: {
+          show: true,
+          color: 'rgba(131,146,165,.08)',
+          min: 48,
+          max: 102,
+          tickSize: 5
+        }
+      });
+    })
+
+    // Horizontal bar chart
+    var ctx2 = document.getElementById('chartBar2').getContext('2d');
+    new Chart(ctx2, {
+      type: 'horizontalBar',
+      data: {
+        labels: ['Project 1', 'Project 2', 'Project 3'],
+        datasets: [{
+          data: [90, 60, 50, 95, 50, 60],
+          backgroundColor: ['#65e0e0', '#69b2f8', '#6fd39b', '#f77eb9', '#fdb16d', '#c693f9']
+        }]
+      },
+      options: {
+        maintainAspectRatio: false,
+        responsive: true,
+        legend: {
+          display: false,
+          labels: {
+            display: false
+          }
+        },
+        layout: {
+          padding: {
+            left: 5
+          }
+        },
+        scales: {
+          yAxes: [{
+            gridLines: {
+              display: false
+            },
+            barPercentage: 0.5,
+            ticks: {
+              beginAtZero: true,
+              fontSize: 13,
+              fontColor: '#182b49',
+              fontFamily: 'IBM Plex Sans'
+            }
+          }],
+          xAxes: [{
+            gridLines: {
+              color: '#e5e9f2'
+            },
+            ticks: {
+              beginAtZero: true,
+              fontSize: 10,
+              fontColor: '#182b49',
+              max: 100
+            }
+          }]
+        }
+      }
+    });
+  </script>
+
+
+</body>
+
+</html>

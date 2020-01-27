@@ -1,0 +1,97 @@
+<%- include('../../include/dashboard-headcss') %>
+
+<body>
+  <%- include('../dashboard-menu') %>
+
+  <div class="content ht-100v pd-0">
+    <div class="content-header d-sm-none">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb breadcrumb-style1 mg-b-0">
+                              <li class="breadcrumb-item" aria-current="page">Account</li>
+          <li class="breadcrumb-item active" aria-current="page">Numbers</li>
+        </ol>
+      </nav>
+    </div><!-- content-header -->
+
+    <!-- mg-t-0 -->
+    <div class="content-body">
+      <!-- pd-x-0 pd-lg-x-10 pd-xl-x-0 -->
+      <div class="container pd-x-0">
+
+        <div class="row row-xs mg-b-25">
+          <div class="col-sm-5 col-lg-6 col-xl-8 mg-t-2">
+            <div class="card">
+              <div class="card-header pd-y-8 pd-x-20 d-flex align-items-center justify-content-between bg-gray-100">
+                <h6 class="tx-uppercase tx-semibold mg-b-0">My Numbers</h6>
+                <nav class="nav nav-with-icon tx-13">
+                  <a href="#" class="nav-link" data-toggle="modal" data-target="#modalAddNumber">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="feather feather-plus">
+                      <line x1="12" y1="5" x2="12" y2="19"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                    Add Number
+                  </a>
+                </nav>
+              </div>
+
+
+              <div class="card-body pd-y-15 pd-x-10">
+                <div class="table-responsive">
+                  <table class="table table-borderless table-sm tx-13 tx-nowrap mg-b-0">
+                    <thead>
+                      <tr class="tx-10 tx-spacing-1 tx-color-03 tx-uppercase">
+                        <th class="text-left tx-normal wd-10p">Number</th>
+                        <th class="text-center">Country</th>
+                        <th class="text-center">Cost</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      <% callingList.forEach(function (call) { %>
+                      <tr>
+                        <td class="text-left tx-normal wd-10p"><%= call.number %></td>
+                        <td class="text-center"><%= call.country %></td>
+                        <td class="text-center">$ <%= call.cost %></td>
+                      </tr>
+                      <% }); %>
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div><!-- container -->
+    </div><!-- content-body -->
+  </div><!-- content -->
+  
+
+  <%- include('add-number') %>
+
+  <%- include('../../include/dashboard-footer-scripts') %>
+
+  <<script>
+
+    $(function(){
+    'use strict'
+
+
+    $('#country-dialcode').change(function () {
+
+    if ($(this).val() != '1') {
+    $('#state-dialcode').hide();
+    }
+    });
+
+    });
+
+    </script>
+
+</body>
+
+</html>

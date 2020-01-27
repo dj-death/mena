@@ -1,0 +1,112 @@
+<%- include('../../include/dashboard-headcss') %>
+
+<body>
+    <%- include('../dashboard-menu') %>
+
+    <div class="content ht-100v pd-0">
+      <div class="content-header d-sm-none">
+          <nav aria-label="breadcrumb">
+              <ol class="breadcrumb breadcrumb-style1 mg-b-0">
+                                      <li class="breadcrumb-item active" aria-current="page"><%= title %></li>
+              </ol>
+          </nav>
+      </div><!-- content-header -->
+
+      <!-- mg-t-0 -->
+      <div class="content-body">
+          <!-- pd-x-0 pd-lg-x-10 pd-xl-x-0 -->
+          <div class="container pd-x-0">
+
+                <div class="row row-xs">
+                    <div class="col-sm-5 col-lg-6">
+                        <div class="card">
+                            <div class="card-header d-sm-flex align-items-start justify-content-between bg-gray-100">
+                                <h6 class="lh-5 mg-b-0 tx-semibold">Update Company Details</h6>
+                            </div><!-- card-header -->
+
+                            <div class="card-body pd-y-15 pd-x-10">
+                                <div class="form-group">
+                                    <label>Name</label>
+                                    <input type="text" class="form-control" placeholder="Enter your name" value="XXXX" />
+                                  </div>
+                    
+                                <div class="form-group">
+                                    <label>Company Name</label>
+                                    <input type="text" class="form-control" placeholder="Enter your Company Name" value="XXXX" />
+                                </div>
+                    
+                                <div class="form-group">
+                                    <label>Country</label>
+                                    <select class="form-control">
+                                        <option selected>Select your Country</option>
+                                        <%- include('../../../website/include/countries') %>
+                                    </select>
+                                </div>
+                    
+                                <div class="form-group">
+                                  <label>Email address</label>
+                                  <input type="email" class="form-control" placeholder="Enter your email address" value="xxx@gmail.com" />
+                                </div>
+                            </div>
+
+                            <div class="card-footer d-flex flex-column flex-sm-row justify-content-end">
+                                <button type="button" class="btn btn-primary mg-b-5 mg-sm-b-0">Save Changes</button>
+                                <button type="button" class="btn btn-secondary mg-sm-l-5"
+                                    data-dismiss="modal">Cancel</button>
+                            </div>
+
+                        </div><!-- card-body -->
+                    </div>
+                </div>
+
+                <div class="row row-xs">
+                    <div class="col-sm-5 col-lg-6 mg-t-25">
+                        <div class="card">
+                            <div class="card-header d-sm-flex align-items-start justify-content-between bg-gray-100">
+                                <h6 class="lh-5 mg-b-0 tx-semibold">Changes Password</h6>
+                            </div><!-- card-header -->
+
+                            <div class="card-body pd-y-15 pd-x-10">
+                                <div class="form-group">
+                                    <div class="d-flex justify-content-between mg-b-5">
+                                      <label class="mg-b-0-f">Old Password</label>
+                                    </div>
+                                    <input type="password" class="form-control" placeholder="Enter your old password">
+                                  </div>
+                                  <div class="form-group">
+                                    <div class="d-flex justify-content-between mg-b-5">
+                                      <label class="mg-b-0-f">New Password</label>
+                                    </div>
+                                    <input type="password" class="form-control" placeholder="Enter your new password">
+                                  </div>
+                                  <div class="form-group">
+                                    <div class="d-flex justify-content-between mg-b-5">
+                                      <label class="mg-b-0-f">Confirm New Password</label>
+                                    </div>
+                                    <input type="password" class="form-control" placeholder="Confirm your new password">
+                                  </div>
+                            </div>
+
+                            <div class="card-footer d-flex flex-column flex-sm-row justify-content-end">
+                                <button type="button" class="btn btn-primary mg-b-5 mg-sm-b-0">Save Changes</button>
+                                <button type="button" class="btn btn-secondary mg-sm-l-5"
+                                    data-dismiss="modal">Cancel</button>
+                            </div>
+
+                        </div><!-- card-body -->
+                    </div><!-- card -->
+
+
+                </div><!-- col -->
+
+
+            </div><!-- row -->
+
+          </div><!-- container -->
+        </div><!-- content-body -->
+    </div><!-- content -->
+    
+    <%- include('../../include/dashboard-footer-scripts') %>
+
+</body>
+</html>

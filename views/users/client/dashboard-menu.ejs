@@ -1,0 +1,53 @@
+<aside class="aside aside-fixed">
+  <div class="aside-header">
+    <a href="/" class="aside-logo"><img src="../../assets/img/logo-dashboard.png"></a>
+    <a href="" class="aside-menu-link">
+      <i data-feather="menu"></i>
+      <i data-feather="x"></i>
+    </a>
+    <a href="" id="chatContentClose" class="burger-menu d-none"><i data-feather="arrow-left"></i></a>
+  </div>
+  <div class="aside-body">
+    <div class="aside-loggedin">
+      <div class="d-flex align-items-center justify-content-end">
+        <div class="aside-alert-link">
+          <a href="/client/chat" class="new" data-toggle="tooltip" title="" data-original-title="You have <%= user.messages.unreadCount %> unread messages"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></a>
+          <a href="/client/notifications" class="new" data-toggle="tooltip" title="" data-original-title="You have <%= user.notifications.count %> new notifications"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg></a>
+        </div>
+      </div>
+
+     
+      <div class="aside-loggedin-user">
+        <div class="d-flex align-items-center">
+          <div class="avatar avatar-sm avatar-online mg-r-8"><img src="https://via.placeholder.com/500" class="rounded-circle" alt=""></div>
+          <h6 class="tx-semibold mg-b-0"><%= user.username %></h6>
+        </div>
+        <div class="d-flex align-items-center">
+          <a href="#loggedinMenu" data-toggle="collapse" aria-expanded="true">
+            <i data-feather="chevron-down"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="collapse show" id="loggedinMenu">
+        <ul class="nav nav-aside mg-b-0">
+          <li class="nav-item <% if (currentIdx == 1) { %> active <% } %>"><a href="/client/settings/account" class="nav-link"><i data-feather="settings"></i> <span>Account Settings</span></a></li>
+          <li class="nav-item <% if (currentIdx == 2) { %> active <% } %>"><a href="/client/settings/billing" class="nav-link"><i data-feather="credit-card"></i> <span>Billing</span></a></li>
+          <li class="nav-item <% if (currentIdx == 3) { %> active <% } %>"><a href="/client/settings/numbers" class="nav-link"><i data-feather="phone"></i> <span>My Numbers</span></a></li>
+
+          <li class="nav-item"><a href="/login" class="nav-link"><i data-feather="log-out"></i> <span>Sign Out</span></a></li>
+        </ul>
+      </div>
+    </div><!-- aside-loggedin -->
+
+    <ul class="nav nav-aside">
+      <li class="nav-item tx-semibold <% if (currentIdx == 0) { %> active <% } %>"><a href="/client" class="nav-link"><i data-feather="activity"></i> <span>Dashboard</span></a></li>
+
+      <li class="nav-item mg-t-15 tx-semibold <% if (currentIdx == 5) { %> active <% } %>"><a href="/client/agents/list" class="nav-link"><i data-feather="users"></i> <span>Search Agents</span></a></li>
+
+      <li class="nav-item mg-t-15 tx-semibold  <% if (currentIdx == 6) { %> active <% } %>"><a href="/client/projects/list" class="nav-link"><i data-feather="briefcase"></i> <span>Browse/Add Projects</span></a></li>
+      
+      <li class="nav-item mg-t-15 tx-semibold  <% if (currentIdx == 7) { %> active <% } %>"><a href="/client/integrations" class="nav-link"><i data-feather="code"></i> <span>Integration API Key</span></a></li>
+    </ul>
+  </div>
+</aside>

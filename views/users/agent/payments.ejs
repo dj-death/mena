@@ -1,0 +1,83 @@
+<%- include('../include/dashboard-headcss') %>
+
+<body>
+    <%- include('dashboard-menu') %>
+
+    <div class="content ht-100v pd-0">
+        <!--  mg-t-0 -->
+        <div class="content-header d-sm-none">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb breadcrumb-style1 mg-b-0">
+                                        <li class="breadcrumb-item active" aria-current="page">Payments</li>
+                </ol>
+            </nav>
+        </div><!-- content-header -->
+
+        <div class="content-body"><!-- pd-x-0 pd-lg-x-10 pd-xl-x-0 -->
+            <div class="container pd-x-0"><!-- pd-x-0 pd-lg-x-10 pd-xl-x-0 -->
+
+                <div class="row">
+                    <div class="col-xl-10 order-xl-1">
+                        <div class="card">
+                            <div class="card-header bg-white border-0">
+                                <div class="row align-items-center">
+                                    <div class="col-8">
+                                        <h3 class="mb-0">Payment</h3>
+                                    </div>
+
+                                    <div class="col-4 text-right">
+                                        <a href="#!" class="btn btn-sm btn-success">Get Paid</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-body">
+                                <h6 class="heading-small text-muted mb-4">Balance</h6>
+                                <div class="pl-lg-4">
+                                    <div class="row">
+                                        <div class="col-sm-6 order-1 order-sm-0">
+                                            <ul class="list-unstyled lh-7 pd-r-10">
+                                                <li class="d-flex justify-content-between">
+                                                    <strong>Lifetime Projects:</strong>
+                                                    <span>$1,000</span>
+                                                </li>
+                                                <li class="d-flex justify-content-between">
+                                                    <strong>In Progress Projects:</strong>
+                                                    <span>$500</span>
+                                                </li>
+                                                <li class="d-flex justify-content-between">
+                                                    <strong>Complete Projects (Available to Withdraw):</strong>
+                                                    <span>$200</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <hr class="my-4">
+                                <h6 class="heading-small text-muted mb-4">Payments</h6>
+                                <div class="pl-lg-4">
+                                    <div class="row">
+                                        <div class="col-sm-6 col-lg-8">
+                                            <%- include('payments-status', { projects: projects } ) %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- container -->
+        </div><!-- content-body -->
+    </div><!-- content -->
+
+
+
+
+
+    <%- include('../include/dashboard-footer-scripts') %>
+
+</body>
+
+</html>

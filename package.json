@@ -1,0 +1,28 @@
+{
+  "name": "crm",
+  "version": "0.0.0",
+  "private": true,
+  "engines": {
+    "node": "12.x"
+  },
+  "main": "app.js",
+  "scripts": {
+    "test": "",
+    "start": "set NODE_ENV=development&& nodemon app.js",
+    "start-dev": "set NODE_ENV=development&& nodemon -e ts --exec \"npm run dev\"",
+    "dev": "npm run start"
+  },
+  "description": "CRM",
+  "author": {
+    "name": ""
+  },
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "cookie-parser": "^1.4.0",
+    "debug": "^2.2.0",
+    "ejs": "^3.0.1",
+    "express": "^4.14.0",
+    "morgan": "^1.7.0",
+    "serve-favicon": "^2.3.0"
+  }
+}

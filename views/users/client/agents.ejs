@@ -1,0 +1,326 @@
+<%- include('../include/dashboard-headcss') %>
+<style>
+    .info_container {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+    }
+
+    .info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .info p {
+        color: gray;
+    }
+
+    .info p:first-child {
+        margin-bottom: 0;
+        font-size: 12px;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .info p:last-child {
+        margin-bottom: 0;
+        font-size: 18px;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <%- include('dashboard-menu') %>
+
+    <div class="content ht-100v pd-0">
+        <div class="content-header d-sm-none">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb breadcrumb-style1 mg-b-0">
+                    <li class="breadcrumb-item active" aria-current="page"><%= title %></li>
+                </ol>
+            </nav>
+        </div><!-- content-header -->
+
+        <!-- mg-t-0 -->
+        <div class="content-body">
+            <!-- pd-x-0 pd-lg-x-10 pd-xl-x-0 -->
+            <div class="container pd-x-0">
+
+                <div class="d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-25 mg-xl-b-30">
+                    <div>
+                        <h3 class="tx-spacing--1 tx-center tx-primary mg-b-25">Find New Agent Now !</h3>
+                        <p class="lead tx-left">Browse and Search our database of Sales Talent, we always strongly
+                            recommend using a Sales
+                            Agent that’s based in your country, this ensures the high quality telephone calls, a key in
+                            Sales Conversions.</p>
+                    </div>
+                </div>
+
+                <div class="row row-xs">
+                    <!-- main content -->
+                    <div class="col-lg-9">
+                        <div class="input-group mg-b-20 pd-b-10 bd-b">
+                            <input type="text" class="form-control" placeholder="Search for Agents...">
+                            <div class="input-group-append">
+                                <button class="btn btn-light" type="button">Search</button>
+                            </div>
+                        </div>
+
+                        <div class="row row-xs mg-b-25">
+                            <div class="col">
+                                <% agents.forEach(function (agent, idx) { %>
+
+                                <div class="card mg-b-20 mg-lg-b-25">
+                                    <div class="card-header pd-l-0 pd-sm-l-20 pd-r-5 d-flex align-items-center justify-content-start pd-y-0">
+                                        <div class="col bd-r pd-y-10">
+                                            <span class="tx-uppercase tx-color-03">Name: </span> <span
+                                                class="tx-semibold"><%= agent.name %> </span>
+                                        </div>
+
+                                        <div class="col bd-r pd-y-10">
+                                            <span class="tx-uppercase tx-color-03">Country: </span> <span
+                                                class="tx-semibold"><%= agent.country %>
+                                            </span>
+                                        </div>
+
+                                        <div class="col pd-y-10">
+                                            <span class="tx-uppercase tx-color-03">State: </span> <span
+                                                class="tx-semibold"><%= agent.state %> </span>
+                                        </div>
+
+                                        <div class="col mg-md-l-100">
+                                            <a href="#"
+                                                class="btn btn-outline-warning tx-uppercase tx-10 tx-medium tx-sans tx-spacing-4"
+                                                data-toggle="modal" data-target="#modalHireAgent">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    class="feather feather-plus">
+                                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                                </svg>
+                                                Hire Now
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-body pd-25 d-block d-sm-flex">
+                                        <div class="col-lg-8 bd-sm-r">
+                                            <div class="media d-block d-sm-flex">
+                                                <div
+                                                    class="wd-80 ht-80 d-flex align-items-center justify-content-center avatar">
+                                                    <!--<span class="avatar-initial rounded-circle bg-dark">S</span>-->
+                                                    <img class="rounded-circle"
+                                                        src="https://bootsnipp.com/img/avatars/92ff0456eb6106d0c1ae8ab5f1fe0afe2d2d25f2.jpg">
+                                                </div>
+
+                                                <div class="media-body pd-t-25 pd-sm-t-0 pd-sm-l-25">
+                                                    <ul class="pd-l-10 mg-0 tx-13">
+                                                        <li>Reaching the targets and goals set for my area.</li>
+                                                        <li>Servicing the needs of my existing customers.</li>
+                                                        <li>Maintaining the relationships with existing customers for
+                                                            repeat business.</li>
+                                                        <li>Reporting to top managers.</li>
+                                                        <li>Keeping up to date with the products.</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col mg-t-15 mg-sm-t-0">
+                                            <div class="info_container">
+                                                <div class="info">
+                                                    <p>Rating</p>
+                                                    <p class="tx-16 tx-center">
+                                                        <% for(var i = 0; i < agent.ratings; i++) { %>
+                                                        <i class="icon ion-md-star lh-0 tx-orange"></i>
+                                                        <% } %>
+                                                    </p>
+                                                </div>
+                                                <div class="info">
+                                                    <p>Projects</p>
+                                                    <p><%= agent.projectsCount %></p>
+                                                </div>
+                                                <div class="info">
+                                                    <p>Earnings</p>
+                                                    <p>$<%= agent.totalEarnings %></p>
+                                                </div>
+                                            </div>
+
+                                            <div class="info_container mg-t-10">
+                                                <div class="info">
+                                                    <p>Working Hours</p>
+                                                    <ul>
+                                                        <p>
+                                                            <li><%= agent.workingHours.week.startHour + 'H -' + agent.workingHours.week.endHour + 'H Monday-Friday' %>
+                                                            </li>
+                                                            <li><%= agent.workingHours.weekend.startHour + 'H -' + agent.workingHours.weekend.endHour + 'H Saturday-Sunday' %>
+                                                            </li>
+                                                        </p>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="card-footer bg-transparent pd-x-20 pd-y-0">
+                                        <div class="row pd-b-3 bd-b pd-b-10">
+                                            <div class="col-sm-10">
+                                                <h6 class="mg-t-10">Specialities</h6>
+                                                <div>
+                                                    <% agent.specialities.forEach(function (spec) { %>
+                                                    <span class="badge badge-light tx-12"><%= spec %></span>
+                                                    <% }); %>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row pd-b-3">
+                                            <a href="#" class="nav-link"><i class="far fa-play-circle"></i> Play Sample
+                                                Voice</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <% }); %>
+
+
+                            </div>
+                        </div>
+
+                        <!--
+                        <button class="btn btn-block btn-sm btn-white">Load more</button>
+                        -->
+                    </div>
+
+                    <!--   aside filter  -->
+                    <div class="col-lg-3 mg-lg-t-0 bd pd-t-10 bg-gray-100 d-none d-sm-flex">
+                        <h6 class="tx-uppercase tx-semibold mg-b-6">Country</h6>
+                        <nav class="nav nav-classic tx-13 mg-b-25">
+                            <select class="form-control">
+                                <option selected>Select Country</option>
+                                <%- include('../../website/include/countries') %>
+                            </select>
+                        </nav>
+
+                        <h6 class="tx-uppercase tx-semibold mg-b-6">Specialities</h6>
+                        <nav class="nav nav-classic tx-13 mg-b-25">
+                            <select class="form-control">
+                                <option selected>Select Speciality</option>
+                                <%- include('../../website/include/specialities') %>
+                            </select>
+                        </nav>
+
+                        <h6 class="tx-uppercase tx-semibold mg-b-6">Experience Level</h6>
+                        <nav class="nav nav-classic tx-13 mg-b-25">
+                            <select class="form-control">
+                                <option selected>Level</option>
+                                <%- include('../../website/include/experience-level') %>
+                            </select>
+                        </nav>
+
+                        <h6 class="tx-uppercase tx-semibold mg-b-6">Filter By Specialities</h6>
+
+                        <nav class="nav nav-classic tx-13">
+                            <ul class="list-inline list-inline-skills">
+                                <li class="list-inline-item"><a href="">HTML5</a></li>
+                                <li class="list-inline-item"><a href="">Sass</a></li>
+                                <li class="list-inline-item"><a href="">CSS</a></li>
+                                <li class="list-inline-item"><a href="">React</a></li>
+                                <li class="list-inline-item"><a href="">jQuery</a></li>
+                                <li class="list-inline-item"><a href="">Angular</a></li>
+                                <li class="list-inline-item"><a href="">Wordpress</a></li>
+                                <li class="list-inline-item"><a href="">Photoshop</a></li>
+                                <li class="list-inline-item"><a href="">PHP</a></li>
+                                <li class="list-inline-item"><a href="">Node</a></li>
+                                <li class="list-inline-item"><a href="">Git</a></li>
+                                <li class="list-inline-item"><a href="">Front-End Development</a></li>
+                                <li class="list-inline-item"><a href="">Web Design</a></li>
+                            </ul>
+                        </nav>
+
+                        <h6 class="tx-uppercase tx-semibold mg-b-6">Working Hours</h6>
+                        <nav class="nav nav-classic tx-13 mg-b-25">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="morning-shift">
+                                <label class="custom-control-label" for="morning-shift">08 AM - 18 PM</label>
+                            </div>
+
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="evening-shift">
+                                <label class="custom-control-label" for="evening-shift">18 PM - 02 AM</label>
+                            </div>
+
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="night-shift">
+                                <label class="custom-control-label" for="night-shift">02 AM - 08 AM</label>
+                            </div>
+
+                        </nav>
+
+                    </div>
+
+                </div><!-- row -->
+
+            </div><!-- container -->
+        </div><!-- content-body -->
+    </div><!-- content -->
+
+
+
+    <div class="modal fade effect-scale" id="modalHireAgent" tabindex="-1" role="dialog" style="display: none;"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header pd-y-20 pd-x-20 pd-sm-x-30">
+                    <a href="" role="button" class="close pos-absolute t-15 r-15" data-dismiss="modal"
+                        aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </a>
+                    <div class="media align-items-center">
+                        <div class="media-body mg-sm-l-20">
+                            <h4 class="tx-18 tx-sm-20 mg-b-2">Hire New Agent</h4>
+                        </div>
+                    </div><!-- media -->
+                </div>
+
+                <div class="modal-body pd-sm-t-30 pd-sm-b-40 pd-sm-x-30">
+
+
+                    <div class="form-group">
+                        <label class="tx-12 tx-uppercase tx-medium tx-spacing-1 mg-b-5 tx-color-03">Assigned
+                            Project:</label>
+                        <select class="form-control custom-select">
+                            <% projects.forEach(function(proj) { %>
+                            <option value="<%= proj.id %>"><%= proj.title %></option>
+                            <% }); %>
+                        </select>
+                    </div>
+
+                    <h5 class="tx-12 tx-uppercase tx-medium tx-spacing-1 mg-b-5 tx-color-03">Hire Period</h5>
+
+                    <div class="row row-sm">
+                        <div class="col-sm">
+                            <label class="tx-10 tx-uppercase tx-medium tx-spacing-1 mg-b-5 tx-color-03">Start
+                                Date</label>
+                            <input type="date" class="form-control" placeholder="Enter expiry date">
+                        </div><!-- col -->
+                        <div class="col-sm-5 mg-t-20 mg-sm-t-0">
+                            <label class="tx-10 tx-uppercase tx-medium tx-spacing-1 mg-b-5 tx-color-03">End Date</label>
+                            <input type="date" class="form-control" placeholder="Enter expiry date">
+                        </div><!-- col -->
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success">Save</button>
+                </div><!-- modal-footer -->
+            </div><!-- modal-content -->
+        </div><!-- modal-dialog -->
+    </div>
+
+    <%- include('../include/dashboard-footer-scripts') %>
+</body>
+
+</html>

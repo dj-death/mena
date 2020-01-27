@@ -1,0 +1,98 @@
+<%- include('../../include/dashboard-headcss') %>
+
+<body>
+  <%- include('../dashboard-menu') %>
+
+  <div class="content ht-100v pd-0">
+    <div class="content-header d-sm-none">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb breadcrumb-style1 mg-b-0">
+                              <li class="breadcrumb-item active" aria-current="page"><%= title %></li>
+        </ol>
+      </nav>
+    </div><!-- content-header -->
+
+    <div class="content-body">
+      <!-- pd-x-0 pd-lg-x-10 pd-xl-x-0 -->
+      <div class="container pd-x-0">
+
+        <!-- search bar row -->
+        <div class="row row-xs">
+          <div class="col-lg-8 col-xl-12">
+            <div class="input-group mg-b-20 pd-b-10 bd-b">
+              <input type="text" class="form-control" placeholder="Search for Projects...">
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="button">Search</button>
+              </div>
+            </div>
+          </div>
+        </div> <!-- end search bar row -->
+
+        <!-- list row -->
+        <div class="row row-xs mg-b-25">
+          <div class="col-lg-8 col-xl-12 mg-t-2">
+            <div class="card">
+              <div class="card-header pd-y-15 pd-x-20 d-flex align-items-center justify-content-between bg-gray-100">
+                <h6 class="tx-uppercase tx-semibold mg-b-0">Projects</h6>
+                <nav class="nav nav-with-icon tx-13">
+                  <a href="#" class="nav-link" data-toggle="modal" data-target="#modalCreateProject">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="feather feather-plus">
+                      <line x1="12" y1="5" x2="12" y2="19"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                    Add Project
+                  </a>
+                </nav>
+              </div>
+
+
+              <div class="card-body pd-y-15 pd-x-10">
+                <div class="table-responsive">
+                  <table class="table table-borderless table-sm tx-13 tx-nowrap mg-b-0">
+                    <thead>
+                      <tr class="tx-10 tx-spacing-1 tx-color-03 tx-uppercase">
+                        <th>Project</th>
+                        <th class="text-right">Calls</th>
+                        <th class="text-right">Sales / Leads</th>
+                        <th class="text-right">Cost Phone Bill</th>
+                        <th class="text-right">Cost Agent</th>
+                        <th class="text-right">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      <% projects.forEach(function (proj) { %>
+                      <tr>
+                        <td class="tx-medium"><a href="/client/project/<%= proj.id %>" class="link-01">
+                            <%= proj.title %> </a></td>
+                        <td class="text-right"><%= proj.callsCount %></td>
+                        <td class="text-right"><%= proj.sales %></td>
+                        <td class="text-right"><%= proj.billCost %></td>
+                        <td class="text-right"><%= proj.agentCost %></td>
+                        <td class="text-right <% if (proj.status == 'Live') { %>  <%= 'tx-success' %> <% } %>">
+                          <%= proj.status %></td>
+                      </tr>
+                      <% }); %>
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div> <!-- end list row -->
+
+      </div><!-- container -->
+    </div><!-- content-body -->
+  </div><!-- content -->
+
+  <%- include('new-project') %>
+
+  <%- include('../../include/dashboard-footer-scripts') %>
+
+</body>
+
+</html>

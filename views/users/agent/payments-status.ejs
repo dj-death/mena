@@ -1,0 +1,22 @@
+<div class="table-responsive">
+    <table class="table table-invoice bd">
+        <thead class="bg-gray-100">
+            <tr>
+                <th class="wd-40p">Project</th>
+                <th class="wd-20p">Length</th>
+                <th class="tx-center">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <% projects.forEach(function(proj){ %>
+                <tr>
+                    <td class="tx-nowrap"> <%= proj.title %> </td>
+                    <td class=""> <%= proj.duration %> Days</td>
+                    <td class="tx-center"> <%= proj.paymentStatus %> </td>
+                </tr>
+            <% }); %>
+
+        </tbody>
+    </table>
+</div>

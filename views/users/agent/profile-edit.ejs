@@ -1,0 +1,378 @@
+<%- include('../include/dashboard-headcss') %>
+<link rel="stylesheet" href="../../lib/audio/audioplayer.css">
+<link rel="stylesheet" href="../../lib/intl-tel-input-16.0.0/build/css/intlTelInput.min.css" />
+<style>
+    .iti__flag {
+        background-image: url("../../lib/intl-tel-input-16.0.0/build/img/flags.png");
+    }
+
+    @media (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi) {
+        .iti__flag {
+            background-image: url("../../lib/intl-tel-input-16.0.0/build/img/flags@2x.png");
+        }
+    }
+
+    .pl-lg-4 {
+        padding-left: 1.5rem !important;
+    }
+
+    .iti {
+        position: relative;
+        display: block !important;
+    }
+</style>
+
+<body>
+    <%- include('dashboard-menu') %>
+
+    <div class="content ht-100v pd-0">
+        <!--  mg-t-0 -->
+        <div class="content-header d-sm-none">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb breadcrumb-style1 mg-b-0">
+                                        <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Edit Profile</li>
+                </ol>
+            </nav>
+            <!--
+            <div class="content-search">
+              <i data-feather="search"></i>
+              <input type="search" class="form-control" placeholder="Search...">
+            </div>
+            <nav class="nav">
+              <a href="" class="nav-link"><i data-feather="help-circle"></i></a>
+              <a href="" class="nav-link"><i data-feather="grid"></i></a>
+              <a href="" class="nav-link"><i data-feather="align-left"></i></a>
+            </nav>
+          -->
+        </div><!-- content-header -->
+
+        <div class="content-body">
+            <!-- pd-x-0 pd-lg-x-10 pd-xl-x-0 -->
+            <div class="container pd-x-0">
+                <!-- pd-x-0 pd-lg-x-10 pd-xl-x-0 -->
+
+
+                <form>
+                    <div class="row">
+                        <div class="col-xl-10 order-xl-1">
+                            <div class="card shadow">
+                                <div class="card-header bg-white border-0">
+                                    <div class="row align-items-center">
+                                        <div class="col-8">
+                                            <h4 class="mb-0">Personal Info</h4>
+                                        </div>
+                                        <!--
+                                <div class="col-4 text-right">
+                                    <a href="#!" class="btn btn-sm btn-primary">Settings</a>
+                                </div>
+                            -->
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="heading-small text-muted mb-4">User information</h6>
+                                    <div class="pl-lg-4">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group focused">
+                                                    <label class="form-control-label"
+                                                        for="input-username">Username</label>
+                                                    <input type="text" id="input-username"
+                                                        class="form-control form-control-alternative"
+                                                        placeholder="Username" value="<%= user.username %>">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label class="form-control-label" for="input-email">Email
+                                                        address</label>
+                                                    <input type="email" id="input-email"
+                                                        class="form-control form-control-alternative"
+                                                        value="<%= agent.email %>">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group focused">
+                                                    <label class="form-control-label" for="input-first-name">First
+                                                        name</label>
+                                                    <input type="text" id="input-first-name"
+                                                        class="form-control form-control-alternative"
+                                                        placeholder="First name" value="<%= agent.firstname %>">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group focused">
+                                                    <label class="form-control-label" for="input-last-name">Last
+                                                        name</label>
+                                                    <input type="text" id="input-last-name"
+                                                        class="form-control form-control-alternative"
+                                                        placeholder="Last name" value="<%= agent.lastname %>">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group focused">
+                                                    <label class="form-control-label" for="input-birthdate">Birth
+                                                        Date</label>
+                                                    <input type="date" id="input-birthdate" class="form-control"
+                                                        value="<%= agent.birthdate %>">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6">
+                                                <div class="form-group focused">
+                                                    <label class="form-control-label" for="input-gender">Gender</label>
+                                                    <select id="input-gender" class="form-control custom-select">
+                                                        <option>Male</option>
+                                                        <option>Female</option>
+                                                    </select>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <hr class="my-4">
+                                    <!-- Address -->
+                                    <h6 class="heading-small text-muted mb-4">Location</h6>
+                                    <div class="pl-lg-4">
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <div class="form-group focused">
+                                                    <label class="form-control-label" for="input-phone">Phone</label>
+                                                    <input type="tel" id="input-phone"
+                                                        class="form-control form-control-alternative"
+                                                        placeholder="Phone number" value="<%= agent.phone %>">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="form-group focused">
+                                                    <label class="form-control-label"
+                                                        for="input-address">Address</label>
+                                                    <input id="input-address"
+                                                        class="form-control form-control-alternative"
+                                                        placeholder="Home Address"
+                                                        value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09"
+                                                        type="text">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-3">
+                                                <div class="form-group focused">
+                                                    <label class="form-control-label" for="input-city">City</label>
+                                                    <input type="text" id="input-city"
+                                                        class="form-control form-control-alternative" placeholder="City"
+                                                        value="<%= agent.city %>">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <div class="form-group focused">
+                                                    <label class="form-control-label" for="input-state">State</label>
+                                                    <input type="text" id="input-state"
+                                                        class="form-control form-control-alternative"
+                                                        placeholder="State" value="<%= agent.state %>">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <div class="form-group focused">
+                                                    <label class="form-control-label"
+                                                        for="input-country">Country</label>
+                                                    <input type="text" id="input-country"
+                                                        class="form-control form-control-alternative"
+                                                        placeholder="Country" value="<%= agent.country %>">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <div class="form-group">
+                                                    <label class="form-control-label" for="input-country">Postal
+                                                        code</label>
+                                                    <input type="number" id="input-postal-code"
+                                                        class="form-control form-control-alternative"
+                                                        placeholder="Postal code" value="<%= agent.postalcode %>">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-8">
+                                                <div class="form-group focused">
+                                                    <label class="form-control-label" for="input-timezone">Time
+                                                        Zone</label>
+                                                    <select id="input-timezone" class="form-control custom-select">
+                                                        <%- include('../include/timezones') %>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <hr class="my-4">
+                                    <!-- Description -->
+                                    <h6 class="heading-small text-muted mb-4">Bio</h6>
+                                    <div class="pl-lg-4">
+                                        <div class="form-group focused">
+                                            <label>About Me</label>
+                                            <textarea rows="4" class="form-control form-control-alternative"
+                                                placeholder="A few words about you ..."><%= agent.bio %></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mg-t-35">
+                        <div class="col-xl-10 order-xl-1">
+                            <div class="card shadow">
+                                <div class="card-header bg-white border-0">
+                                    <div class="row align-items-center">
+                                        <div class="col-8">
+                                            <h4 class="mb-0">Professional Info</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="heading-small text-muted mb-4">Working Hours</h6>
+                                    <div class="pl-lg-4">
+                                        <div class="row mg-b-5">
+                                            <div class="col-md-6">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend"
+                                                        style="min-width: 130px !important; display: block !important;">
+                                                        <span class="input-group-text">Monday-Friday</span>
+                                                    </div>
+                                                    <select id="week-start" name="week-start"
+                                                        class="form-control custom-select" aria-label="Start"
+                                                        placeholder="Start">
+                                                        <%- include('../include/times', { value: 8}) %>
+                                                    </select>
+
+                                                    <select id="day-end" name="day-end"
+                                                        class="form-control custom-select" aria-label="End"
+                                                        placeholder="End">
+                                                        <%- include('../include/times', { value: 18}) %>
+                                                    </select>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="row mg-b-5">
+                                            <div class="col-md-6">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend"
+                                                        style="min-width: 130px !important; display: block !important;">
+                                                        <span class="input-group-text">Saturday-Sunday</span>
+                                                    </div>
+                                                    <select id="weekend-start" name="weekend-start"
+                                                        class="form-control custom-select" aria-label="Start"
+                                                        placeholder="Start">
+                                                        <%- include('../include/times', { value: 9 } ) %>
+                                                    </select>
+
+                                                    <select id="weekend-end" name="weekend-end"
+                                                        class="form-control custom-select" aria-label="End"
+                                                        placeholder="End">
+                                                        <%- include('../include/times', { value: 13 }) %>
+                                                    </select>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+                                    <h6 class="heading-small text-muted mb-4 mg-t-25">Voice Sample</h6>
+                                    <div class="pl-lg-4">
+                                        <div class="row mg-b-5">
+                                            <div class="col-12 col-sm-6">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <h6
+                                                            class="card-title tx-10 tx-medium tx-spacing-1 tx-color-03 tx-uppercase tx-sans mg-b-10">
+                                                            Sample 1</h6>
+                                                        <audio preload="auto" controls>
+                                                            <source
+                                                                src="/assets/data/audio/BlueDucks_FourFlossFiveSix.mp3">
+                                                            <source
+                                                                src="/assets/data/audio/BlueDucks_FourFlossFiveSix.ogg">
+                                                            <source
+                                                                src="/assets/data/audio/BlueDucks_FourFlossFiveSix.wav">
+                                                        </audio>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12 col-sm-6">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <h6
+                                                            class="card-title tx-10 tx-medium tx-spacing-1 tx-color-03 tx-uppercase tx-sans mg-b-10">
+                                                            Sample 2</h6>
+                                                        <audio preload="auto" controls>
+                                                            <source
+                                                                src="/assets/data/audio/BlueDucks_FourFlossFiveSix.mp3">
+                                                            <source
+                                                                src="/assets/data/audio/BlueDucks_FourFlossFiveSix.ogg">
+                                                            <source
+                                                                src="/assets/data/audio/BlueDucks_FourFlossFiveSix.wav">
+                                                        </audio>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+                                        </div> <!-- end audio voice -->
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div><!-- container -->
+        </div><!-- content-body -->
+    </div><!-- content -->
+
+
+    <%- include('../include/dashboard-footer-scripts') %>
+    <script src="../../lib/audio/audioplayer.min.js"></script>
+
+    <script src="../../lib/intl-tel-input-16.0.0/build/js/intlTelInput.min.js"></script>
+    <script>
+        $(function () {
+            'use strict'
+
+            $('audio').audioPlayer();
+
+            var input = document.querySelector("#input-phone");
+            window.intlTelInput(input);
+
+            //$('#birth-date').datepicker();
+
+            var weekendStart = <%= agent.workingHours.weekend.startHour %> ;
+            var weekendEnd = <%= agent.workingHours.weekend.endHour %>  ;
+            var weekStart = <%= agent.workingHours.week.startHour %> ;
+            var weekEnd = <%= agent.workingHours.week.startHour %> ;
+
+            $('#weekend-start').val(weekendStart);
+            $('#weekend-end').val(weekendEnd);
+            $('#week-start').val(weekStart);
+            $('#week-end').val(weekEnd);
+        });
+    </script>
+
+</body>
+
+</html>

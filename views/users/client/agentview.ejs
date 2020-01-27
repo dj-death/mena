@@ -1,0 +1,63 @@
+<div class="card mg-b-20 mg-lg-b-25">
+    <div class="card-header pd-x-20 d-flex align-items-center justify-content-start pd-y-0">
+        <div class="col bd-r pd-y-10">
+            <span class="tx-uppercase tx-color-03">Name: </span> <span class="tx-semibold"><%= agent.name %> </span>
+        </div>
+
+        <div class="col bd-r pd-y-10">
+            <span class="tx-uppercase tx-color-03">Country: </span> <span class="tx-semibold"><%= agent.country %>
+            </span>
+        </div>
+
+        <div class="col pd-y-10">
+            <span class="tx-uppercase tx-color-03">State: </span> <span class="tx-semibold"><%= agent.state %> </span>
+        </div>
+    </div>
+
+    <div class="card-body pd-25 d-block d-sm-flex">
+        <div class="col-lg-8 bd-r">
+            <div class="media d-block d-sm-flex">
+                <div class="wd-80 ht-80 d-flex align-items-center justify-content-center avatar">
+                    <span class="avatar-initial rounded-circle bg-dark">S</span>
+                </div>
+
+                <div class="media-body pd-t-25 pd-sm-t-0 pd-sm-l-25">
+                    <!--h5 class="mg-b-5">Area Sales Manager<h5>
+                <p class="mg-b-3 tx-color-02"><span class="tx-medium tx-color-01">ThemePixels, Inc.</span>, Bay Area, San Francisco, CA</p>
+                <span class="d-block tx-13 tx-color-03">December 2016 - Present</span>
+                    -->
+                    <ul class="pd-l-10 mg-0 mg-t-20 tx-13">
+                        <li>Reaching the targets and goals set for my area.</li>
+                        <li>Servicing the needs of my existing customers.</li>
+                        <li>Maintaining the relationships with existing customers for repeat business.</li>
+                        <li>Reporting to top managers.</li>
+                        <li>Keeping up to date with the products.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <h6 class="tx-uppercase tx-semibold">Working Hours</h6>
+            <ul>
+                    <li><%= agent.workingHours.week.startHour + 'H -' + agent.workingHours.week.endHour + 'H Monday-Friday' %></li>
+                    <li><%= agent.workingHours.weekend.startHour + 'H -' + agent.workingHours.weekend.endHour + 'H Saturday-Sunday' %></li>
+            </ul>
+        </div>
+    </div>
+    <div class="card-footer bg-transparent pd-x-20 pd-y-0">
+        <div class="row pd-b-3 bd-b">
+            <label for="Specialities" class="col-sm-2 col-form-label tx*tx-uppercase tx-semibold">Specialities</label>
+            <div class="col-sm-10">
+                <div class="bootstrap-tagsinput">
+                    <% agent.specialities.forEach(function (spec) { %>
+                    <span class="tag label label-info"><%= spec %></span>
+                    <% }); %>
+                </div>
+            </div>
+        </div>
+        <div class="row pd-b-3">
+            <a href="#" class="nav-link"><i class="far fa-play-circle"></i> Play Sample Voice</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,162 @@
+<%- include('../include/dashboard-headcss') %>
+<link rel="stylesheet" href="../../lib/audio/audioplayer.css">
+<link rel="stylesheet" href="../../assets/css/profilepage.css">
+
+<body>
+    <%- include('dashboard-menu') %>
+
+    <div class="content ht-100v pd-0">
+        <div class="content-header d-sm-none">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb breadcrumb-style1 mg-b-0">
+                                        <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Edit Profile</li>
+                </ol>
+            </nav>
+        </div><!-- content-header -->
+
+        <div class="content-body">
+            <!-- pd-x-0 pd-lg-x-10 pd-xl-x-0 -->
+            <div class="container pd-x-0">
+                <!-- pd-x-0 pd-lg-x-10 pd-xl-x-0 -->
+
+                <!-- profile view -->
+                <div class="row align-items-center justify-content-start bd-b">
+                    <!-- profile photo -->
+                    <div class="col-sm-4 col-lg-2 mg-b-25 pd-l-25">
+                        <div class="avatar avatar-xxl"><img src="https://via.placeholder.com/500" class="rounded-circle"
+                                alt="">
+                            <a href="" class="contact-edit-photo" data-toggle="tooltip" title=""
+                                data-original-title="Upload Photo"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                    height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2">
+                                    <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+                                </svg></a>
+
+                        </div>
+                    </div> <!-- end profile photo -->
+
+                    <!-- profile info -->
+                    <div class="col-sm-8 col-md-7 col-lg mg-b-25">
+                        <div class="float-right mg-t-0">
+                            <!-- #modalEditProfile -->
+                            <a href="/agent/profile-edit" class="btn btn-sm btn-white d-flex align-items-center mg-r-5">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-edit-2">
+                                    <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+                                </svg>
+                                <span class="d-none d-sm-inline mg-l-5"> Edit</span>
+                            </a>
+                        </div>
+
+                        <h5 class="mg-t-15 mg-b-2 tx-spacing-1"><%= agent.name %></h5>
+
+                        <p class="tx-13 tx-color-02 mg-b-25"><%= agent.bio %></p>
+
+                        <div class="d-flex tx-left">
+                            <h7 class="tx-color-03 tx-semibold">Working Hours :</h7>
+                            <ul>
+                                <li><%= agent.workingHours.week.startHour + 'H -' + agent.workingHours.week.endHour + 'H Monday-Friday' %>
+                                </li>
+                                <li><%= agent.workingHours.weekend.startHour + 'H -' + agent.workingHours.weekend.endHour + 'H Saturday-Sunday' %>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div> <!-- end profile info -->
+
+                    <!-- profile ratings -->
+                    <div class="col-sm-4 col-lg-2 mg-b-25 bd-l tx-center">
+                        <div class="profile-skillset flex-fill mg-b-15">
+                            <div class="tx-16">
+                                <% for(var i = 0; i < agent.ratings; i++) { %>
+                                <i class="icon ion-md-star lh-0 tx-orange"></i>
+                                <% } %>
+                            </div>
+                            <label>Overall Rating</label>
+                        </div>
+
+                        <div class="profile-skillset flex-fill mg-b-15">
+                            <h4><%= agent.projectsCount %></h4>
+                            <label>Projects</label>
+                        </div>
+
+                        <div class="profile-skillset flex-fill">
+                            <h4>$<%= agent.totalEarnings %></h4>
+                            <label>Earnings</label>
+                        </div>
+                    </div> <!-- end profile ratings -->
+
+                </div> <!-- end profile view -->
+
+                <!-- profile details -->
+                <h6 class="mg-t-20 tx-uppercase tx-semibold">Contact Details</h6>
+                <div class="row row-xs pd-y-15 bd-b">
+                    <div class="col-6 col-sm-4">
+                        <label
+                            class="tx-10 tx-medium tx-spacing-1 tx-color-03 tx-uppercase tx-sans mg-b-10">Phone</label>
+                        <p class="tx-primary tx-rubik mg-b-0"><%= agent.phone %></p>
+                    </div>
+
+                    <div class="col-6 col-sm-4">
+                        <label
+                            class="tx-10 tx-medium tx-spacing-1 tx-color-03 tx-uppercase tx-sans mg-b-10">Address</label>
+                        <p class="mg-b-0">4658 Kenwood Place<br>Pompano Beach, FL 33060, United States</p>
+                    </div>
+                </div>
+
+
+                <!-- Voice -->
+                <h6 class="mg-t-35 tx-uppercase tx-semibold">My Voice Samples</h6>
+
+                <div class="row row-xs">
+                    <div class="col-12 col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title tx-10 tx-medium tx-spacing-1 tx-color-03 tx-uppercase tx-sans mg-b-10">Sample 1</h6>
+                            <audio preload="auto" controls>
+                                    <source src="/assets/data/audio/BlueDucks_FourFlossFiveSix.mp3">
+                                    <source src="/assets/data/audio/BlueDucks_FourFlossFiveSix.ogg">
+                                    <source src="/assets/data/audio/BlueDucks_FourFlossFiveSix.wav">
+                                </audio>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                            <h6 class="card-title tx-10 tx-medium tx-spacing-1 tx-color-03 tx-uppercase tx-sans mg-b-10">Sample 2</h6>
+                            <audio preload="auto" controls>
+                                    <source src="/assets/data/audio/BlueDucks_FourFlossFiveSix.mp3">
+                                    <source src="/assets/data/audio/BlueDucks_FourFlossFiveSix.ogg">
+                                    <source src="/assets/data/audio/BlueDucks_FourFlossFiveSix.wav">
+                                </audio>
+                            </div>
+                        </div>
+                    </div>  
+
+                    
+
+                </div> <!-- end audio voice -->
+
+            </div><!-- container -->
+        </div><!-- content-body -->
+    </div><!-- content -->
+
+
+    <%- include('edit-profile', { agent: agent }) %>
+
+    <%- include('../include/dashboard-footer-scripts') %>
+    <script src="../../lib/audio/audioplayer.min.js"></script>
+
+    <script>
+        $(function () {
+            $('audio').audioPlayer();
+        });
+    </script>
+
+</body>
+
+</html>

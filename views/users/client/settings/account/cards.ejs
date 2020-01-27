@@ -1,0 +1,29 @@
+<div class="card wd-sm-600 mg-b-20 mg-lg-b-25">
+
+    <div class="card-header pd-y-15 pd-x-20 d-flex align-items-center justify-content-between bg-gray-100">
+      <h6 class="tx-uppercase tx-semibold mg-b-0">Billing methods</h6>
+      <nav class="nav nav-with-icon tx-13">
+        <a href="" class="nav-link" data-toggle="modal" data-target="#modalAddCard"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg> Add Method</a>
+      </nav>
+    </div>
+
+    <% cards.forEach(function(card){ %>
+        <div class="card-body pd-y-15 pd-x-25">
+            <div class="media">
+                <div class="mop-icon-column display-inline-block">
+                    <span class="bpa-cards-icon-img bpa-cards-icon-mop-list bpa-cards-icon bpa-cards-icon-<%= card.type %>"></span>
+                </div>
+                <div class="media-body pd-l-25">
+                <h6 class="mg-b-5"><%= card.type.toUpperCase() %> ending in <%= card.ending %></h6>
+                <span class="d-block tx-13 tx-color-03">Expires On <%= card.expires %></span>
+                </div>
+                <nav class="nav nav-icon-only">
+                    <a href="" class="dropdown-link" data-toggle="dropdown" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg></a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                      <a href="#modalConfirmDelete" data-toggle="modal" class="dropdown-item details">Delete Card</a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+      <% }); %>
+  </div>

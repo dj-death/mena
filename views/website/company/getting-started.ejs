@@ -1,0 +1,106 @@
+﻿<%- include('../include/headcss') %>
+
+<style>
+    ul,
+    ol {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul li {
+        list-style: none;
+    }
+
+    ul.features-stack li {
+        margin-top: 50px;
+    }
+
+    .feature-content {
+        display: inline-block;
+        padding-top: 6px;
+    }
+
+    .feature-icon {
+        display: inline-block;
+        vertical-align: top;
+        width: 35px;
+    }
+
+    span.icon {
+        font-size: 28px;
+        font-weight: bold;
+    }
+</style>
+
+<body>
+
+    <%- include('../include/header') %>
+
+    <div class="content content-fixed content-auth pd-2">
+        <div class="container ht-100p">
+            <%- include('../include/banner') %>
+
+            <h4 class="tx-color-02 text-center tx-primary">
+                To Start Your first Project, follow the below steps:
+            </h4>
+
+            <div class="row">
+                <div class="col-12 tx-left">
+                    <ul class="features-stack">
+                        <li class="feature-item">
+                            <div class="feature-icon">
+                                <span class="icon tx-primary">1</span>
+                            </div>
+                            <div class="feature-content">
+                                <h5>Search for a Sales Agent in your area that matches your requirements.</h5>
+                                <!--<p>Outbound Telesales for a Given Product</p>-->
+                                <div class="wd-100p wd-sm-600 mg-t-15">
+                                    <img src="https://via.placeholder.com/1260x950" class="img-fluid" alt="">
+                                </div>
+                            </div>
+                        </li>
+                        <li class="feature-item">
+                            <div class="feature-icon">
+                                <span class="icon tx-primary">2</span>
+                            </div>
+                            <div class="feature-content">
+                                <h5>Hire them for the desired Time Period by Days, Weeks, or Months.</h5>
+                                <div class="wd-100p wd-sm-600 mg-t-15">
+                                    <img src="https://via.placeholder.com/1260x950" class="img-fluid" alt="">
+                                </div>
+                            </div>
+                        </li>
+                        <li class="feature-item">
+                            <div class="feature-icon">
+                                <span class="icon tx-primary">3</span>
+                            </div>
+                            <div class="feature-content">
+                                <h5>Provide Details of your Project, Optionally Connect your CRM</h5>
+                                <div class="wd-100p wd-sm-600 mg-t-15">
+                                    <img src="https://via.placeholder.com/1260x950" class="img-fluid" alt="">
+                                </div>
+                            </div>
+                        </li>
+                        <li class="feature-item">
+                            <div class="feature-icon">
+                                <span class="icon tx-primary">4</span>
+                            </div>
+                            <div class="feature-content">
+                                <h5>Bring your number or select a number from our database and start your project</h5>
+                                <div class="wd-100p wd-sm-600 mg-t-15">
+                                    <img src="https://via.placeholder.com/1260x950" class="img-fluid" alt="">
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <p class="tx-16 tx-color-02 tx-left mg-t-35">
+                        To have one of our sales team help you get started with your first project, please arrange a
+                        call at a suitable time via our contact us page by clicking <a href="/contact">here</a>
+                    </p>
+                </div>
+            </div>
+        </div><!-- container -->
+    </div><!-- content -->
+
+    <%- include('../include/footer') %>

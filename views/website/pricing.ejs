@@ -1,0 +1,110 @@
+<%- include('include/headcss') %>
+<style>
+    .card-pricing.popular {
+        z-index: 1;
+        border: 3px solid #007bff;
+    }
+    .card-pricing .list-unstyled li {
+        padding: .5rem 0;
+        color: #6c757d;
+    }
+
+</style>
+
+<body>
+
+    <%- include('include/header') %>
+
+    <div class="content content-fixed pd-2">
+        <div class="container ht-100p">
+            <%- include('include/banner') %>
+
+
+            <div class="row row-xs justify-content-center pd-x-25">
+                <div class="col-12 tx-left">
+                    <p class="lead">
+                        Below you can view our clear and transparent pricing, all services are pay-as-you-go with no
+                        commitments beyond a daily, weekly or monthly engagement.
+                    </p>
+                    <p class="lead">
+                        Agents come with different skill levels and individualized pricing, you can see the agents
+                        prices on
+                        the individualized agent prices.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row row-xs justify-content-center align-items-center mg-t-25">
+
+                <div class="pricing card-deck flex-column flex-md-row mb-3">
+                    <div class="card card-pricing text-center px-3 mb-4">
+                        <span class="h6 w-60 mx-auto px-4 py-1 rounded-bottom bg-primary text-white shadow-sm">BRONZE</span>
+                        <div class="bg-transparent card-header pt-4 border-0">
+                            <h1 class="h1 font-weight-normal text-primary text-center mb-0" data-pricing-value="10">$<span class="price">10</span><span class="h6 text-muted ml-2">/ per hour</span></h1>
+                        </div>
+                        <div class="card-body pt-0">
+                            <ul class="list-unstyled mb-4">
+                                <li>$9 Daily Call Charges <sup>Inc Mobile</sup></li>
+                                <li>Free Call Recording</li>
+                                <!--<li>Monthly updates</li>
+                                <li>Free cancelation</li>-->
+                            </ul>
+                            <button type="button" class="btn btn-outline-secondary mb-3">Get Started</button>
+                        </div>
+                    </div>
+                    <div class="card card-pricing popular shadow text-center px-3 mb-4">
+                        <span class="h6 w-60 mx-auto px-4 py-1 rounded-bottom bg-primary text-white shadow-sm">SILVER</span>
+                        <div class="bg-transparent card-header pt-4 border-0">
+                            <h1 class="h1 font-weight-normal text-primary text-center mb-0" data-pricing-value="15">$<span class="price">15</span><span class="h6 text-muted ml-2">/ per hour</span></h1>
+                        </div>
+                        <div class="card-body pt-0">
+                            <ul class="list-unstyled mb-4">
+                                <li>$9 Daily Call Charges <sup>Inc Mobile</sup></li>
+                                <li>Free Call Recording</li>
+                                <!--<li>Monthly updates</li>
+                                <li>Free cancelation</li>-->
+                            </ul>
+                            <button type="button" class="btn btn-outline-secondary mb-3">Get Started</button>
+                        </div>
+                    </div>
+                    <div class="card card-pricing text-center px-3 mb-4">
+                        <span class="h6 w-60 mx-auto px-4 py-1 rounded-bottom bg-primary text-white shadow-sm">GOLD</span>
+                        <div class="bg-transparent card-header pt-4 border-0">
+                            <h1 class="h1 font-weight-normal text-primary text-center mb-0" data-pricing-value="20">$<span class="price">20</span><span class="h6 text-muted ml-2">/ per hour</span></h1>
+                        </div>
+                        <div class="card-body pt-0">
+                            <ul class="list-unstyled mb-4">
+                                <li>$9 Daily Call Charges <sup>Inc Mobile</sup></li>
+                                <li>Free Call Recording</li>
+                                <!--<li>Monthly updates</li>
+                                <li>Free cancelation</li>-->
+                            </ul>
+                            <button type="button" class="btn btn-outline-secondary mb-3">Get Started</button>
+                        </div>
+                    </div>
+                    <div class="card card-pricing text-center px-3 mb-4">
+                        <span class="h6 w-60 mx-auto px-4 py-1 rounded-bottom bg-primary text-white shadow-sm">ENTREPRISE</span>
+                        <div class="bg-transparent card-header pt-4 border-0">
+                            <h1 class="h1 font-weight-normal text-primary text-center mb-0" data-pricing-value=""><span class="price tx-24">Individualized</span></h1>
+                        </div>
+                        <div class="card-body pt-0">
+                            <ul class="list-unstyled mb-4">
+                                <li>$9 Daily Call Charges <sup>Inc Mobile</sup></li>
+                                <li>Free Call Recording</li>
+                                <!--<li>Monthly updates</li>
+                                <li>Free cancelation</li>-->
+                            </ul>
+                            <button type="button" class="btn btn-outline-secondary mb-3">Get Started</button>
+                        </div>
+                    </div>
+                </div>    
+            
+
+
+            </div>
+
+        </div><!-- container -->
+    </div><!-- content -->
+    
+
+    <%- include('include/footer') %>

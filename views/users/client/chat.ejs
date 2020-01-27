@@ -1,0 +1,40 @@
+<%- include('../include/dashboard-headcss') %>
+
+<link rel="stylesheet" href="../../assets/css/dashforge.chat.css">
+
+<body>
+    <%- include('dashboard-menu') %>
+    <div class="content ht-100v pd-0">
+        <div class="content-header d-sm-none">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb breadcrumb-style1 mg-b-0">
+                    <li class="breadcrumb-item active" aria-current="page">Chat Room</li>
+                </ol>
+            </nav>
+        </div><!-- content-header -->
+
+        <!-- mg-t-0 -->
+        <div class="content-body pd-0">
+            <%- include('../include/chat-wrapper') %>
+        </div><!-- content-body -->
+    </div><!-- content -->
+
+
+    <%- include('../include/dashboard-footer-scripts') %>
+    <script src="../../assets/js/dashforge.chat.js"></script>
+    <script>
+
+        $(function () {
+            'use strict'
+
+            if (window.matchMedia('(min-width: 768px)').matches) {
+                /*$('body').addClass('show-sidebar-right');
+                $('#showMemberList').addClass('active');*/
+            }
+
+        })
+
+    </script>
+</body>
+
+</html>

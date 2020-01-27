@@ -1,0 +1,77 @@
+<div class="d-sm-flex align-items-center justify-content-between bd-b">
+    <div>
+        <h4 class="mg-b-5">Statement Period</h4>
+        <p class="mg-b-0 tx-color-03">Dec 11, 2019 to Jan 10, 2020</p>
+
+        <div class="mg-t-20 mg-sm-t-0 d-inline float-right">
+            <button class="btn btn-white"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-printer mg-r-5">
+                    <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                    <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                    <rect x="6" y="14" width="12" height="8"></rect>
+                </svg> Print</button>
+            <button class="btn btn-white mg-l-5"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" class="feather feather-activity mg-r-5">
+                    <path d="M3 17v3a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3"></path>
+                    <polyline points="8 12 12 16 16 12"></polyline>
+                </svg> PDF</button>
+        </div>
+    </div>
+    
+</div>
+
+<div class="table-responsive mg-t-40">
+    <table class="table table-invoice bd-b">
+        <thead>
+            <tr>
+                <th class="wd-20p">Date</th>
+                <th class="wd-20p">Project</th>
+                <th class="wd-40p d-none d-sm-table-cell">Description</th>
+                <th class="tx-center">Agent</th>
+                <th class="tx-right">Amount</th>
+                <th class="tx-right">Ref ID</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <% payments.forEach(function(pay){ %>
+                <tr>
+                    <td class="tx-nowrap"> <%= pay.date %> </td>
+                    <td class="tx-nowrap"> <%= pay.project %> </td>
+                    <td class="d-none d-sm-table-cell tx-color-03"> <%= pay.description %> </td>
+                    <td class="tx-center"> <%= pay.agent %> </td>
+                    <td class="tx-right">$ <%= pay.amount %> </td>
+                    <td class="tx-right"> <%= pay.id %> </td>
+                </tr>
+            <% }); %>
+
+        </tbody>
+    </table>
+</div>
+
+<div class="row justify-content-between">
+
+    <div class="col-sm-6 col-lg-4 order-1 order-sm-0">
+        <ul class="list-unstyled lh-7 pd-r-10">
+            <li class="d-flex justify-content-between">
+                <span>Sub-Total</span>
+                <span>$5,750.00</span>
+            </li>
+            <li class="d-flex justify-content-between">
+                <span>Tax (5%)</span>
+                <span>$287.50</span>
+            </li>
+            <li class="d-flex justify-content-between">
+                <span>Discount</span>
+                <span>-$50.00</span>
+            </li>
+            <li class="d-flex justify-content-between">
+                <strong>Total Due</strong>
+                <strong>$5,987.50</strong>
+            </li>
+        </ul>
+
+    </div>
+</div>

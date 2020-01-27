@@ -1,0 +1,65 @@
+<div class="modal fade effect-scale" id="modalEditProfile" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body pd-20 pd-sm-30">
+          <button type="button" class="close pos-absolute t-15 r-20" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+
+          <h5 class="tx-18 tx-sm-20 mg-b-20">Edit Profile</h5>
+          <p class="tx-13 tx-color-03 mg-b-30">You can add more information than what you see here, such as address and birthday by clicking <span class="tx-color-02">Add More Fields</span> button below to bring up more options.</p>
+
+          <div class="d-sm-flex">
+            <div class="mg-sm-r-30">
+              <div class="pos-relative d-inline-block mg-b-20">
+                <div class="avatar avatar-xxl"><span class="avatar-initial rounded-circle bg-gray-700 tx-normal">A</span></div>
+                <a href="" class="contact-edit-photo"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg></a>
+              </div>
+            </div><!-- col -->
+            <div class="flex-fill">
+              <h6 class="mg-b-10">Personal Information</h6>
+              <div class="form-group mg-b-10">
+                <input type="text" class="form-control" placeholder="Firstname" value="<%= agent.firstname %>">
+              </div><!-- form-group -->
+              <div class="form-group mg-b-10">
+                <input type="text" class="form-control" placeholder="Lastname" value="<%= agent.lastname %>">
+              </div><!-- form-group -->
+
+              <h6 class="mg-t-20 mg-b-10">Contact Information</h6>
+
+              <div class="form-group mg-b-10">
+                <input type="text" class="form-control" placeholder="Phone number" value="<%= agent.phone %>">
+              </div><!-- form-group -->
+              <div class="form-group mg-b-10">
+                <input type="email" class="form-control" placeholder="Email address" value="">
+              </div><!-- form-group -->
+
+              <h6 class="mg-t-20 mg-b-10">Bio</h6>
+              <textarea class="form-control" rows="2" placeholder="Add Bio"><%= agent.bio %></textarea>
+
+              <h6 class="mg-t-20 mg-b-10">Working Hours</h6>
+              <div class="form-group">
+                  <div class='input-group date' id='datetimepicker3'>
+                      <input type='text' class="form-control" />
+                      <span class="input-group-addon">
+                          <span class="glyphicon glyphicon-time"></span>
+                      </span>
+                  </div>
+              </div>
+
+
+            </div><!-- col -->
+          </div>
+        </div>
+
+
+        <div class="modal-footer">
+          <div class="wd-100p d-flex flex-column flex-sm-row justify-content-end">
+            <button type="button" class="btn btn-primary mg-b-5 mg-sm-b-0" data-dismiss="modal">Save Changes</button>
+            <button type="button" class="btn btn-secondary mg-sm-l-5" data-dismiss="modal">Cancel</button>
+          </div>
+        </div><!-- modal-footer -->
+
+      </div><!-- modal-content -->
+    </div><!-- modal-dialog -->
+  </div>

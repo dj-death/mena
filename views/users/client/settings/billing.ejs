@@ -1,0 +1,76 @@
+<%- include('../../include/dashboard-headcss') %>
+
+<body>
+  <%- include('../dashboard-menu') %>
+
+  <div class="content ht-100v pd-0">
+    <div class="content-header d-sm-none">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb breadcrumb-style1 mg-b-0">
+                <li class="breadcrumb-item" aria-current="page">Account</li>
+                <li class="breadcrumb-item active" aria-current="page">Billing</li>
+            </ol>
+        </nav>
+    </div><!-- content-header -->
+
+    <!-- mg-t-0 -->
+    <div class="content-body">
+        <!-- pd-x-0 pd-lg-x-10 pd-xl-x-0 -->
+        <div class="container pd-x-0">
+
+        <div class="row row-xs">
+          <div class="col">
+          <ul class="nav nav-line " id="myTab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+                aria-selected="true">My Cards</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+                aria-selected="false">Payment History</a>
+            </li>
+          </ul>
+
+          <div class="tab-content pd-t-20" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+              <%- include('account/cards') %>
+            </div>
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+              <%- include('account/invoices') %>
+            </div>
+          </div>
+
+          </div>
+
+        </div><!-- row -->
+
+      </div><!-- container -->
+    </div><!-- content-body -->
+</div><!-- content -->
+
+    <%- include('account/add-card') %>
+
+    <div class="modal hide fade" id="modalConfirmDelete" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Are you sure for deleting this credit card ?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Confirm Delete</button>
+            <button type="button" class="btn" data-dismiss="modal">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%- include('../../include/dashboard-footer-scripts') %>
+
+  </body>
+  </html>
